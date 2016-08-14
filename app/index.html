@@ -64,6 +64,44 @@
         <p>♥ from the Yeoman team</p>
       </div> -->
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="chooseModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalTitle"></h4>
+          </div>
+          <div class="modal-body">
+            Para jugar necesitas:
+            <ul>
+              <li>Seleccionar 1 pokémon de los que aparecen abajo,</li>
+              <li>Oprimir la tecla con la flecha para abajo, esto es para hacer que el pokémon avance <strong>(No la dejes presionada)</strong></li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="winnerModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">El ganador es</h4>
+          </div>
+          <div class="modal-body text-center">
+          </div>
+          <div class="modal-footer">
+            <a type="button" class="btn btn-default" href="/">Jugar de nuevo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -95,6 +133,12 @@
     <script src="/bower_components/bootstrap/js/collapse.js"></script>
     <script src="/bower_components/bootstrap/js/tab.js"></script>
     <!-- endbuild -->
+
+    <script>
+      $(document).on('ready', function () {
+        $('#chooseModal').modal({backdrop: 'static', keyboard: false})  
+      })
+    </script>
     
     <!-- build:js scripts/main.js -->
     <script src="scripts/Protos/Screen.js"></script>

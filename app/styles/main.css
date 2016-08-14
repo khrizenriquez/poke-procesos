@@ -5,11 +5,31 @@
   padding: 0.2em 0;
 }
 
+#chooseModal .modal-body {
+  height: 200px;
+}
+
 .canvasContainer {
   background: green;
   height: 500px;
   position: relative;
 }
+.image-choose-pokemon {
+  cursor: pointer;
+}
+.image-choose-pokemon img {
+  transition: all 0.25s linear;
+  width: 100%;
+}
+.image-choose-pokemon img:hover {
+  background: #34495e;
+  border-radius: 50%;
+}
+
+.pokemon-winner {
+  width: 150px;
+}
+
 .square {
   background: red;
   border: 1px solid black;
@@ -21,6 +41,10 @@
   right: 0;
   position: absolute;
   transition: 0.1s all linear;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */ 
 }
 .square span img {
   height: 50px;

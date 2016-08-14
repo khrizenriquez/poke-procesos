@@ -1,71 +1,78 @@
 'use strict'
 
-var display, frames, speedFrame, 
-	animation, lvFrame, dir, 
+var display, 
 	guys 	= [], 
-	winner 	= false
-var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame
+	winner = false, 
+	user 	= {}
 
 var getRandomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-function update () {
-	frames++
+var gameOver = function () {
+	let i 			= 0, 
+		elements 	= document.querySelector('.canvasContainer').children
 
-	guys.some(function (element, index, arr) {
-		element.y += element.speed
-	})
-}
+	for (i; i < elements.length; i++) {
+		let topValue = elements[i].children[0].style.top
 
-function render () {
-	//display.clear()
-	//display.background()
+		if (parseFloat(topValue.split('%')[0]) >= 95) {
+			winner = true
+			user.winnerGame = guys[i]
+			clearAllIntervals()
 
-	//	Dibujando las divisiones
-	display.drawDivisions()
-
-	//	Dibujando a los personajes
-	display.drawGuys()
-}
-
-function run () {
-	let loop = function () {
-		update()
-		render()
-
-		animation = window.requestAnimationFrame(loop, display.canvas)
+			showWinner()
+		}
 	}
-	animation = window.requestAnimationFrame(loop, display.canvas)
 }
 
-var initFunctions = function () {
-	//	Start settings
-	frames 		= 0
-	speedFrame 	= 0
-	lvFrame 	= 20
-
-	dir = 1
-
-	//	Start the loop game
-	run()
+var userChoose = function (id) {
+	user.id = id || 0
 }
 
-var infinityLoop = function () {}
+var showWinner = function () {
+	//	Mostrando la modal
+	$('#winnerModal').modal('show')
 
-var init = function () {
-	initFunctions()
-	infinityLoop()
+	$('#winnerModal .modal-body').html(`
+		<img class="pokemon-winner" src="/images/${user.winnerGame.id}.png" alt="Pokémon número ${user.winnerGame.id}" /> 
+		<h4>Felicidades, ganaste en ${$('.container .header .timer').text()} segundos</h4>`)
+}
+
+var showModal = function () {
+	//	Mostrando la modal
+	$('#chooseModal').modal('show')
+	//	Colocando el título de la modal
+	$('#chooseModal .modal-title').text(`¿Cuál de estos ${guys.length} pokémons deseas elegir?`)
+
+	let pokeData = '<div class="text-center col-xs-1 col-sm-1 col-md-1"> </div>'
+	guys.some(function (element, index, arr) {
+		pokeData += `<div id="pokemon-${element.id}" class="image-choose-pokemon text-center col-xs-2 col-sm-2 col-md-2"><img class="" src="/images/${element.id}.png" alt="Pokémon número ${element.id}" /></div>`
+	})
+
+	$('#chooseModal .modal-body').append(`${pokeData}`)
+
+	$('#chooseModal .modal-body [id^=pokemon-]').on('click', function (e) {
+		userChoose($(this).attr('id').split('pokemon-')[1])
+		$('#chooseModal').modal('hide')
+
+		//	Movimiento de cada uno de ellos
+		let g = new Guys()
+		g.randomMovement()
+
+		displayTimer()
+
+		//	Escuchando que teclas presiona el usuario
+		display.pressKey()
+	})
 }
 
 //	http://stackoverflow.com/questions/6843201/how-to-clearinterval-with-unknown-id
 function clearAllIntervals() {
-    for (var i = 1; i < 99999; i++)
-        window.clearInterval(i);
+    for (var i = 1; i < 99999; i++) window.clearInterval(i)
 }
 
 var main = function () {
-
 	display = new Screen()
 
 	//	Arreglo de personajes
@@ -74,10 +81,10 @@ var main = function () {
 
 	display.drawGuys(5)
 
+	showModal()
+
 	//	Movimiento de cada uno de ellos
-	console.log('Movimiento aleatorio')
-	g.randomMovement()
-	console.log('Movimiento aleatorio')
+	//g.randomMovement()
 
 	// for (i; i < children.length; i++) {
 	// 	console.log(children[i])
@@ -113,5 +120,8 @@ var displayTimer = function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 	main()
-	//displayTimer()
+
+	setInterval(function () {
+		gameOver()
+	}, 100)
 })
