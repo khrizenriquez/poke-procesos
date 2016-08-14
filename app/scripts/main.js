@@ -1,7 +1,12 @@
 'use strict'
 
-var display, guys
+var display, 
+	guys = []
 var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame
+
+var getRandomInt = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
 var main = function () {
 	const WIDTH 	= (document.body.offsetWidth / (5/4))
@@ -17,6 +22,8 @@ var main = function () {
 	//	Dibujando a los personajes
 	//	Arreglo de personajes
 	display.drawGuys()
+	var g = new Guys()
+	g.randomGuys(5)
 	//display 	= new Screen(window.innerWidth, window.innerHeight)
 	//input 		= new InputHandler()
 	//heroData 	= new Hero()
