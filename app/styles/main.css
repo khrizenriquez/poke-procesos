@@ -5,6 +5,28 @@
   padding: 0.2em 0;
 }
 
+.canvasContainer {
+  background: green;
+  height: 500px;
+  position: relative;
+}
+.square {
+  background: red;
+  border: 1px solid black;
+  height: 500px;
+}
+.square-span {
+  top: -10%;
+  left: 0;
+  right: 0;
+  position: absolute;
+  transition: 0.1s all linear;
+}
+.square span img {
+  height: 50px;
+  width: 50px;
+}
+
 /* Space out content a bit */
 body {
   padding-top: 20px;

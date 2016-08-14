@@ -30,20 +30,15 @@
     
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">juego_procesos</h3>
+        <h3 class="text-muted">Tiempo: <span class="timer"></span></h3>
       </div>
 
-      <div>
-        Tiempo: <span class="timer"></span>
-      </div>
-
-      <div id="canvasContainer">
-        
+      <div class="row canvasContainer">
+        <div class="text-center square col-xs-2 col-sm-2 col-md-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-1"><span class="square-span"></span></div>
+        <div class="text-center square col-xs-2 col-sm-2 col-md-2"><span class="square-span"></span></div>
+        <div class="text-center square col-xs-2 col-sm-2 col-md-2"><span class="square-span"></span></div>
+        <div class="text-center square col-xs-2 col-sm-2 col-md-2"><span class="square-span"></span></div>
+        <div class="text-center square col-xs-2 col-sm-2 col-md-2"><span class="square-span"></span></div>
       </div>
 
       <!-- <div class="jumbotron">
@@ -102,9 +97,9 @@
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
-    <script src="scripts/Protos/Guys.js"></script>
     <script src="scripts/Protos/Screen.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/Protos/Guys.js"></script>
     <!-- endbuild -->
   </body>
 </html>
