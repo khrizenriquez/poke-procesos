@@ -19,11 +19,12 @@ var main = function () {
 	//	Dibujando las divisiones
 	display.drawDivisions()
 
-	//	Dibujando a los personajes
 	//	Arreglo de personajes
-	display.drawGuys()
 	var g = new Guys()
 	g.randomGuys(5)
+
+	//	Dibujando a los personajes
+	display.drawGuys()
 	//display 	= new Screen(window.innerWidth, window.innerHeight)
 	//input 		= new InputHandler()
 	//heroData 	= new Hero()

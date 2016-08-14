@@ -27,16 +27,21 @@ Screen.prototype.drawGuys = function() {
 		i 			= 1, 
 		divisionSize = w / divisions
 
-	for (i; i <= 5; i++) {
+	//	Recorriendo el arreglo de los personajes y mostrandolos en pantalla
+	guys.some(function (element, index, arr) {
+		let i = index + 1
+		console.log(index)
 		let center 	= ((divisionSize * i) - 100)
 		let img 	= new Image()
-		let guy 	= new Guys((20 * i), 0, i)
 
-		img.src = guy.img
+		element.x = (20 * i)
+		element.y = 0
+
+		img.src = element.img
 		img.onload = function () {
-			ctx.drawImage(this, center, guy.y, 60, 60)
+			ctx.drawImage(this, center, element.y, 60, 60)
 		}
-	}
+	})
 }
 
 Screen.prototype.drawDivisions = function () {
