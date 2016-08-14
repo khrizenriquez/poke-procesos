@@ -21,18 +21,20 @@ Screen.prototype.background = function () {
 }
 
 Screen.prototype.drawGuys = function() {
-	let ctx = this.ctx
+	let w 			= this.width, 
+		divisions 	= 5, 
+		ctx 		= this.ctx, 
+		i 			= 1, 
+		divisionSize = w / divisions
 
-	for (var i = 1; i <= 3; i++) {
-		let img = new Image()
-		console.log((40 * i))
-		console.log((50 * i))
-		let guy = new Guys((20 * i), (30 * i), i)
+	for (i; i <= 5; i++) {
+		let center 	= ((divisionSize * i) - 100)
+		let img 	= new Image()
+		let guy 	= new Guys((20 * i), 0, i)
 
 		img.src = guy.img
 		img.onload = function () {
-			//let random = new Handler().getRandom(10, 30)
-			ctx.drawImage(this, guy.x, guy.y, 50, 50)
+			ctx.drawImage(this, center, guy.y, 60, 60)
 		}
 	}
 }
@@ -46,11 +48,10 @@ Screen.prototype.drawDivisions = function () {
 		divisionSize = w / divisions
 
 	for(i; i < divisions; i++) {
-		ctx.beginPath();
-	    ctx.moveTo(divisionSize * i, 0);
-	    ctx.lineTo(divisionSize * i, w);
-	    ctx.stroke();
-		console.log(divisionSize * i)
+		ctx.beginPath()
+	    ctx.moveTo(divisionSize * i, 0)
+	    ctx.lineTo(divisionSize * i, w)
+	    ctx.stroke()
 	}
 }
 

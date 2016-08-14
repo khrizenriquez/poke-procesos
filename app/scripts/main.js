@@ -5,7 +5,7 @@ var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimat
 
 var main = function () {
 	const WIDTH 	= (document.body.offsetWidth / (5/4))
-	const HEIGHT 	= (document.body.offsetWidth / (3/2))
+	const HEIGHT 	= (window.innerHeight - 200)
 	display 		= new Screen(WIDTH, HEIGHT)
 
 	//	Dibujando el fondo del canvas
