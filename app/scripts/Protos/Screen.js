@@ -6,14 +6,14 @@ var Screen = function () {
 }
 
 Screen.prototype.pressKey = function () {
-	var arrowDown = this.arrowDown
+	let arrowDown = this.arrowDown
 	document.addEventListener('click', function (e) {
 		if (winner) return false
 
 		guys.some(function (element, index, arr) {
 			if (parseInt(user.id) !== element.id) return
 
-			var top = document.querySelector('.canvasContainer').children[index].children[0].style.top
+			let top = document.querySelector('.canvasContainer').children[index].children[0].style.top
 			if (top == '') {
 				document.querySelector('.canvasContainer').children[index].children[0].style.top = '-10%'
 			} else {
@@ -24,14 +24,14 @@ Screen.prototype.pressKey = function () {
 	document.addEventListener('keyup', function (e) {
 		if (winner) return false
 
-		var key = e.keyCode || e.which
+		let key = e.keyCode || e.which
 
 		if (key !== arrowDown) return false
 
 		guys.some(function (element, index, arr) {
 			if (parseInt(user.id) !== element.id) return
 
-			var top = document.querySelector('.canvasContainer').children[index].children[0].style.top
+			let top = document.querySelector('.canvasContainer').children[index].children[0].style.top
 			if (top == '') {
 				document.querySelector('.canvasContainer').children[index].children[0].style.top = '-10%'
 			} else {
@@ -46,17 +46,18 @@ Screen.prototype.background = function () {}
 
 Screen.prototype.drawGuys = function(size) {
 	var container 	= document.querySelector('.canvasContainer'), 
-		children 	= container.children, 
+		c 			= container.children, 
 		i 			= 0,
 		divisions 	= size || 5, 
 		img
 
-	for (i; i < children.length; i++) {
-		var c 	= children[i]
-		img 	= new Image()
-		img.src = guys[i].img
+	for (i; i < c.length; i++) {
+		let content = c[i]
+		img 		= new Image()
+		img.src 	= guys[i].img
 		img.onload = function () {
-			c.children[0].appendChild(this)
+			console.log(content)
+			content.children[0].appendChild(this)
 		}
 	}
 }

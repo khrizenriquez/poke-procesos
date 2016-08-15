@@ -10,11 +10,11 @@ var getRandomInt = function (min, max) {
 }
 
 var gameOver = function () {
-	var i 			= 0, 
+	let i 			= 0, 
 		elements 	= document.querySelector('.canvasContainer').children
 
 	for (i; i < elements.length; i++) {
-		var topValue = elements[i].children[0].style.top
+		let topValue = elements[i].children[0].style.top
 
 		if (parseFloat(topValue.split('%')[0]) >= 95) {
 			winner = true
@@ -45,7 +45,7 @@ var showModal = function () {
 	//	Colocando el título de la modal
 	$('#chooseModal .modal-title').text(`¿Cuál de estos ${guys.length} pokémons deseas elegir?`)
 
-	var pokeData = '<div class="text-center col-xs-1 col-sm-1 col-md-1"> </div>'
+	let pokeData = '<div class="text-center col-xs-1 col-sm-1 col-md-1"> </div>'
 	guys.some(function (element, index, arr) {
 		pokeData += `<div id="pokemon-${element.id}" class="image-choose-pokemon text-center col-xs-2 col-sm-2 col-md-2"><img class="" src="/images/${element.id}.png" alt="Pokémon número ${element.id}" /></div>`
 	})
@@ -57,7 +57,7 @@ var showModal = function () {
 		$('#chooseModal').modal('hide')
 
 		//	Movimiento de cada uno de ellos
-		var g = new Guys()
+		let g = new Guys()
 		g.randomMovement()
 
 		displayTimer()
@@ -82,14 +82,37 @@ var main = function () {
 	display.drawGuys(5)
 
 	showModal()
+
+	//	Movimiento de cada uno de ellos
+	//g.randomMovement()
+
+	// for (i; i < children.length; i++) {
+	// 	console.log(children[i])
+	// }
+	// const WIDTH 	= (document.body.offsetWidth / (5/4))
+	// const HEIGHT 	= (window.innerHeight - 200)
+	// display 		= new Screen(WIDTH, HEIGHT)
+
+	// //	Dibujando el fondo del canvas
+	// display.background()
+
+	// //	Dibujando las divisiones
+	// display.drawDivisions()
+
+	
+
+	// //	Dibujando a los personajes
+	
+
+	// init()
 }
 
 var displayTimer = function () {
-	var timerElement 		= document.querySelector('.timer')
-	var t 					= 0
+	let timerElement 		= document.querySelector('.timer')
+	let t 					= 0
 	timerElement.innerHTML 	= 0
 
-	var interal = setInterval(function () {
+	let interal = setInterval(function () {
 		t += 1
 		timerElement.innerHTML = t
 	}, 1000)

@@ -9,10 +9,10 @@ var Guys = function (posX, posY, image, id) {
 }
 
 Guys.prototype.randomGuys = function (size) {
-	var i = 0, 
+	let i = 0, 
 		s = size || 5
 	for (i; i < size; i++) {
-		var randNumber = getRandomInt(1, 151)
+		let randNumber = getRandomInt(1, 151)
 		guys.push(new Guys(0, 0, randNumber, randNumber))
 	}
 }
@@ -21,11 +21,11 @@ Guys.prototype.randomMovement = function () {
 	guys.some(function (element, index, arr) {
 		if (element.id == user.id) return
 
-		var topValue, 
+		let topValue, 
 			el = element, 
 			i  = index
 		setInterval(function () {
-			var top = document.querySelector('.canvasContainer').children[i].children[0].style.top
+			let top = document.querySelector('.canvasContainer').children[i].children[0].style.top
 
 			//if (parseInt(top.split('%')[0]) >= 90) clearAllIntervals()
 
