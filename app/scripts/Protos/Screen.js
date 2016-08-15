@@ -52,7 +52,7 @@ Screen.prototype.drawGuys = function(size) {
 		img
 
 	for (i; i < c.length; i++) {
-		var content = c[i]
+		let content = c[i]
 		img 		= new Image()
 		img.src 	= guys[i].img
 		img.onload = function () {
