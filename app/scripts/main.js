@@ -10,11 +10,11 @@ var getRandomInt = function (min, max) {
 }
 
 var gameOver = function () {
-	let i 			= 0, 
+	var i 			= 0, 
 		elements 	= document.querySelector('.canvasContainer').children
 
 	for (i; i < elements.length; i++) {
-		let topValue = elements[i].children[0].style.top
+		var topValue = elements[i].children[0].style.top
 
 		if (parseFloat(topValue.split('%')[0]) >= 95) {
 			winner = true
@@ -45,7 +45,7 @@ var showModal = function () {
 	//	Colocando el título de la modal
 	$('#chooseModal .modal-title').text(`¿Cuál de estos ${guys.length} pokémons deseas elegir?`)
 
-	let pokeData = '<div class="text-center col-xs-1 col-sm-1 col-md-1"> </div>'
+	var pokeData = '<div class="text-center col-xs-1 col-sm-1 col-md-1"> </div>'
 	guys.some(function (element, index, arr) {
 		pokeData += `<div id="pokemon-${element.id}" class="image-choose-pokemon text-center col-xs-2 col-sm-2 col-md-2"><img class="" src="/images/${element.id}.png" alt="Pokémon número ${element.id}" /></div>`
 	})
@@ -57,7 +57,7 @@ var showModal = function () {
 		$('#chooseModal').modal('hide')
 
 		//	Movimiento de cada uno de ellos
-		let g = new Guys()
+		var g = new Guys()
 		g.randomMovement()
 
 		displayTimer()
@@ -108,11 +108,11 @@ var main = function () {
 }
 
 var displayTimer = function () {
-	let timerElement 		= document.querySelector('.timer')
-	let t 					= 0
+	var timerElement 		= document.querySelector('.timer')
+	var t 					= 0
 	timerElement.innerHTML 	= 0
 
-	let interal = setInterval(function () {
+	var interal = setInterval(function () {
 		t += 1
 		timerElement.innerHTML = t
 	}, 1000)
