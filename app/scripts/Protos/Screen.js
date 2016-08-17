@@ -17,7 +17,7 @@ Screen.prototype.pressKey = function () {
 			if (top == '') {
 				document.querySelector('.canvasContainer').children[index].children[0].style.top = '-10%'
 			} else {
-				document.querySelector('.canvasContainer').children[index].children[0].style.top = (0.5 + 
+				document.querySelector('.canvasContainer').children[index].children[0].style.top = (1 + 
 								element.speed + parseFloat(top.split('%')[0])) + '%'
 			}
 		})
@@ -36,7 +36,7 @@ Screen.prototype.pressKey = function () {
 			if (top == '') {
 				document.querySelector('.canvasContainer').children[index].children[0].style.top = '-10%'
 			} else {
-				document.querySelector('.canvasContainer').children[index].children[0].style.top = (0.5 + 
+				document.querySelector('.canvasContainer').children[index].children[0].style.top = (1 + 
 								element.speed + parseFloat(top.split('%')[0])) + '%'
 			}
 		})
