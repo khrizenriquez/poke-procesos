@@ -17,7 +17,8 @@ Screen.prototype.pressKey = function () {
 			if (top == '') {
 				document.querySelector('.canvasContainer').children[index].children[0].style.top = '-10%'
 			} else {
-				document.querySelector('.canvasContainer').children[index].children[0].style.top = (element.speed + parseFloat(top.split('%')[0])) + '%'
+				document.querySelector('.canvasContainer').children[index].children[0].style.top = (0.5 + 
+								element.speed + parseFloat(top.split('%')[0])) + '%'
 			}
 		})
 	})
@@ -35,7 +36,8 @@ Screen.prototype.pressKey = function () {
 			if (top == '') {
 				document.querySelector('.canvasContainer').children[index].children[0].style.top = '-10%'
 			} else {
-				document.querySelector('.canvasContainer').children[index].children[0].style.top = (element.speed + parseFloat(top.split('%')[0])) + '%'
+				document.querySelector('.canvasContainer').children[index].children[0].style.top = (0.5 + 
+								element.speed + parseFloat(top.split('%')[0])) + '%'
 			}
 		})
 	})
