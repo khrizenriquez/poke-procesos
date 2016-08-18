@@ -18,6 +18,15 @@ El primero que llegue a la meta, que se encuentra hasta abajo es el ganador.
 
 Esto funciona a base de intervalos, `setInterval` de JavaScript para que dentro de determinado tiempo los personajes rivales avancen. 
 
+**Instalación**
+
+Para poder instalar esto, es necesario tener instalado ![NodeJS](https://nodejs.org/en/) en su ordenador y ![bower](https://bower.io/)
+
+* Clonar el proyecto
+* Dirigirse dentro de la carpeta que contiene el proyecto
+* Ejecutar desde la línea de comandos o termial: npm install && bower install
+* Ejecutar desde la línea de comandos o termial: gulp serve (esto es para levantar el servidor localmente con gulp)
+
 
 **Legal**
 
