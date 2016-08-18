@@ -20,7 +20,7 @@ Esto funciona a base de intervalos, `setInterval` de JavaScript para que dentro 
 
 **Instalación**
 
-Para poder instalar esto, es necesario tener instalado ![NodeJS](https://nodejs.org/en/) en su ordenador y ![bower](https://bower.io/)
+Para poder instalar esto, es necesario tener instalado [NodeJS](https://nodejs.org/en/) en su ordenador y [bower](https://bower.io/)
 
 * Clonar el proyecto
 * Dirigirse dentro de la carpeta que contiene el proyecto
