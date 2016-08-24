@@ -1,8 +1,6 @@
 'use strict'
 
 var Guys = function (posX, posY, image, id) {
-	this.x 		= posX 	|| 0
-	this.y 		= posY 	|| 0
 	this.id 	= id 	|| 0
 	this.speed 	= (getRandomInt(1, 10) / 10)
 	this.img 	= window.location.href + `images/${image}.png`
@@ -18,16 +16,16 @@ Guys.prototype.randomGuys = function (size) {
 }
 
 Guys.prototype.randomMovement = function () {
+	//	Recorro el arreglo de los pokémons
 	guys.some(function (element, index, arr) {
 		if (element.id == user.id) return
 
 		var topValue, 
 			el = element, 
 			i  = index
+		//	En cada interación, de manera individual increment su valor "top" para que se mueva hacia abajo
 		setInterval(function () {
 			var top = document.querySelector('.canvasContainer').children[i].children[0].style.top
-
-			//if (parseInt(top.split('%')[0]) >= 90) clearAllIntervals()
 
 			if (top == '') {
 				document.querySelector('.canvasContainer').children[i].children[0].style.top = '-10%'

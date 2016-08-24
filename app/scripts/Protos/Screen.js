@@ -7,6 +7,8 @@ var Screen = function () {
 
 Screen.prototype.pressKey = function () {
 	var arrowDown = this.arrowDown
+
+	//	Acciones cuando le dan clic o tap (si es pantalla táctil)
 	document.addEventListener('click', function (e) {
 		if (winner) return false
 
@@ -22,6 +24,8 @@ Screen.prototype.pressKey = function () {
 			}
 		})
 	})
+
+	//	Acciones con la flecha hacia abajo del teclado
 	document.addEventListener('keyup', function (e) {
 		if (winner) return false
 
@@ -43,9 +47,9 @@ Screen.prototype.pressKey = function () {
 	})
 }
 
-//	
-Screen.prototype.background = function () {}
-
+/*
+	Función para dibujar a los pokémons en el div contenedor
+*/
 Screen.prototype.drawGuys = function(size) {
 	var container 	= document.querySelector('.canvasContainer'), 
 		c 			= container.children, 
@@ -53,12 +57,12 @@ Screen.prototype.drawGuys = function(size) {
 		divisions 	= size || 5, 
 		img
 
+	//	Itero en los elementos que tiene el div contenedor, dibujo los bordes de las divisiones y dibujo a los personajes en pantalla
 	for (i; i < c.length; i++) {
 		let content = c[i]
 		img 		= new Image()
 		img.src 	= guys[i].img
 		img.onload = function () {
-			console.log(content)
 			content.children[0].appendChild(this)
 		}
 	}

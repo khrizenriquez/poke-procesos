@@ -5,10 +5,23 @@ var display,
 	winner = false, 
 	user 	= {}
 
+/*
+	@min int
+	@max int
+	@return int
+	Función que acepta un valor mínimo y un máximo, y regresa un número
+	aleatorio entre ellos
+*/
 var getRandomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+/*
+	@return void
+	Función para saber en que momento un jugador llego a la meta final
+	y en ese momento cancelo todos los intervalos de tiempo que se 
+	estaban ejecutando
+*/
 var gameOver = function () {
 	var i 			= 0, 
 		elements 	= document.querySelector('.canvasContainer').children
@@ -26,10 +39,20 @@ var gameOver = function () {
 	}
 }
 
+/*
+	@return void
+	Función que me sirve para asignar a mi objeto user el id
+	del pokémon que el usuario selecciono
+*/
 var userChoose = function (id) {
 	user.id = id || 0
 }
 
+/*
+	@return void
+	Despliega una modal mostrando con una imagen que jugador gano
+	la carrera
+*/
 var showWinner = function () {
 	//	Mostrando la modal
 	$('#winnerModal').modal('show')
@@ -39,6 +62,13 @@ var showWinner = function () {
 		<h4>Felicidades, ganaste en ${$('.container .header .timer').text()} segundos</h4>`)
 }
 
+/*
+	@return void
+	Despliega una modal donde muestro que pokémons se pueden seleccionar, media vez se seleccione uno
+	 	- La carrera empieza y se mueven los jugadores excepto el mío
+	 	- Puedo mover a mi jugador con la flecha hacia abajo o con clics o taps
+	 	- Inicia el tiempo en pantalla, que indica la cantidad de segundos que lleva el juego
+*/
 var showModal = function () {
 	//	Mostrando la modal
 	$('#chooseModal').modal('show')
@@ -60,6 +90,7 @@ var showModal = function () {
 		var g = new Guys()
 		g.randomMovement()
 
+		//	Llamo a la función encargada de mostrar el tiempo en pantalla
 		displayTimer()
 
 		//	Escuchando que teclas presiona el usuario
@@ -68,6 +99,11 @@ var showModal = function () {
 }
 
 //	http://stackoverflow.com/questions/6843201/how-to-clearinterval-with-unknown-id
+/*
+	@return void
+	Función encargada de limpiar todos los intervalos de tiempo que
+	se estan ejecuando
+*/
 function clearAllIntervals() {
     for (var i = 1; i < 99999; i++) window.clearInterval(i)
 }
@@ -75,38 +111,21 @@ function clearAllIntervals() {
 var main = function () {
 	display = new Screen()
 
-	//	Arreglo de personajes
+	//	Arreglo de personajes, obtengo 5 personajes aleatorios
 	var g = new Guys()
 	g.randomGuys(5)
 
+	//	Muestro los personajes en pantalla
 	display.drawGuys(5)
 
+	//	Muestro la modal donde puedo elegir al personaje que usaré para participar
 	showModal()
-
-	//	Movimiento de cada uno de ellos
-	//g.randomMovement()
-
-	// for (i; i < children.length; i++) {
-	// 	console.log(children[i])
-	// }
-	// const WIDTH 	= (document.body.offsetWidth / (5/4))
-	// const HEIGHT 	= (window.innerHeight - 200)
-	// display 		= new Screen(WIDTH, HEIGHT)
-
-	// //	Dibujando el fondo del canvas
-	// display.background()
-
-	// //	Dibujando las divisiones
-	// display.drawDivisions()
-
-	
-
-	// //	Dibujando a los personajes
-	
-
-	// init()
 }
 
+/*
+	@return void
+	Función que actualiza cada segundo el tiempo en pantalla
+*/
 var displayTimer = function () {
 	var timerElement 		= document.querySelector('.timer')
 	var t 					= 0
