@@ -27,6 +27,8 @@ Para poder instalar esto, es necesario tener instalado [NodeJS](https://nodejs.o
 * Ejecutar desde la línea de comandos o termial: npm install && bower install
 * Ejecutar desde la línea de comandos o termial: gulp serve (esto es para levantar el servidor localmente con gulp)
 
+**[Enlace demo](http://poke-carrera.khrizenriquez.com/)**
+
 
 **Legal**
 
