@@ -1,5 +1,7 @@
 # Poke procesos
 
+**[Enlace demo](http://poke-carrera.khrizenriquez.com/)**
+
 ![Chris Enríquez - poke procesos, carrera pokémon](https://raw.githubusercontent.com/khrizenriquez/poke-procesos/master/app/images/screenShoots/start.png)
 
 Carrera con pokémons, cada participante avanza de manera independiente. 
@@ -26,8 +28,6 @@ Para poder instalar esto, es necesario tener instalado [NodeJS](https://nodejs.o
 * Dirigirse dentro de la carpeta que contiene el proyecto
 * Ejecutar desde la línea de comandos o termial: npm install && bower install
 * Ejecutar desde la línea de comandos o termial: gulp serve (esto es para levantar el servidor localmente con gulp)
-
-**[Enlace demo](http://poke-carrera.khrizenriquez.com/)**
 
 
 **Legal**
